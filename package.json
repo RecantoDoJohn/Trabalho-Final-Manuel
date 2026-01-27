@@ -14,6 +14,7 @@
   "dependencies": {
     "ejs": "^4.0.1",
     "express": "^5.2.1",
+    "playwright": "^1.58.0",
     "sequelize": "^6.37.7",
     "sqlite3": "^5.1.7"
   },

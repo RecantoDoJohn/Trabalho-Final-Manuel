@@ -1,0 +1,2 @@
+npm i playwright
+npx playwright install
