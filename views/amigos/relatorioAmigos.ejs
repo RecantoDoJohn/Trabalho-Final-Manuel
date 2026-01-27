@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Amigos</title>
+
+  <style>
+    body { font-family: Arial; font-size: 12px; }
+    h1 { margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: 6px; }
+    th { background: #eee; }
+  </style>
+</head>
+<body>
+
+<h1>Relatório de Amigos</h1>
+
+<a href="/relatorioAmigos.pdf">Relatório de Amigos - baixar (PDF)</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Qtd. Jogos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% amigos.forEach(amigo => { %>
+      <tr>
+        <td><%= amigo.id %></td>
+        <td><%= amigo.nome %></td>
+        <td><%= amigo.email %></td>
+        <td><%= amigo.jogos.length %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+</body>
+</html>
