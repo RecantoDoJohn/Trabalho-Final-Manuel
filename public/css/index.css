@@ -1,0 +1,87 @@
+/* Arquivo: public/css/styles.css */
+:root {
+  --azul-escuro: #086788;
+  --azul: #07A0C3;
+  --amarelo: #F0C808;
+  --bege: #FFF1D0;
+  --vermelho: #DD1C1A;
+  --vermelhoEscuro: #961715;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f5f5f5;
+  
+}
+h1, h2 {
+  color: var(--azul);
+  text-align: center;
+  margin-bottom: -10px;
+}
+nav {
+  text-align: center;
+  margin: 15px;
+}
+table {
+  width: 70%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.171);
+}
+.tabela-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+tr:hover {
+  background-color: rgba(214, 214, 214, 0.185);
+}
+th {
+  background-color: var(--azul-escuro);
+  color: white;
+}
+.id {
+  text-align: center;
+}
+a {
+  color: var(--azul);
+  text-decoration: none;
+}
+.editar {
+  display: inline-block;
+  color: white;
+  background-color: var(--azul);
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+  padding: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.171);
+}
+.editar:hover {
+  background-color: var(--azul-escuro);
+}
+.excluir {
+  color: white;
+  cursor: pointer;
+  background-color: var(--vermelho);
+  border-radius: 10px;
+  width: 100px;
+  padding: 4.5px;
+  border: none;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.171);
+}
+.excluir:hover {
+  background-color: var(--vermelhoEscuro);
+}
+td.acoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}

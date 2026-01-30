@@ -2,32 +2,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
- <meta charset="UTF-8" />
- <title>Jogos</title>
- <link rel="stylesheet" href="/css/styles.css" />
+    <meta charset="UTF-8" />
+    <title>Jogos</title>
+    <link rel="stylesheet" href="/css/index.css" />
 </head>
+
 <body>
- <h1>Jogos Eletrônicos</h1>
- <p><a href="/jogos/novo">Cadastrar novo jogo</a> | <a href="/amigos">Amigos</a> | <a
-href="/emprestimos">Empréstimos</a></p>
- <table>
- <thead><tr><th>ID</th><th>Título</th><th>Plataforma</th><th>Dono</th><th>Ações</th></tr></thead>
- <tbody>
- <% jogos.forEach(j => { %>
- <tr>
- <td><%= j.id %></td>
- <td><%= j.titulo %></td>
- <td><%= j.plataforma %></td>
- <td><%= j.dono ? j.dono.nome : 'Sem dono' %></td>
- <td>
- <a href="/jogos/editar/<%= j.id %>">Editar</a>
- <form action="/jogos/excluir/<%= j.id %>" method="POST" style="display:inline;">
-    <button type="submit">Excluir</button>
- </form>
- </td>
- </tr>
- <% }) %>
- </tbody>
- </table>
+    <h1>Jogos Eletrônicos</h1>
+
+    <nav>
+        <a href="/jogos/novo">Cadastrar novo jogo</a> |
+        <a href="/amigos">Amigos</a> |
+        <a href="/emprestimos">Empréstimos</a>
+    </nav>
+    <div class="tabela-container">
+        <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Plataforma</th>
+                <th>Dono</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% jogos.forEach(j => { %>
+                <tr>
+                    <td class="itemlista id"><%= j.id %></td>
+                    <td class="itemlista"><%= j.titulo %></td>
+                    <td class="itemlista"><%= j.plataforma %></td>
+                    <td class="itemlista"><%= j.dono ? j.dono.nome : 'Sem dono' %></td>
+                    <td class="itemlista acoes">
+                        <a href="/jogos/editar/<%= j.id %>" class="editar">Editar</a>
+
+                        <form 
+                            action="/jogos/excluir/<%= j.id %>" 
+                            method="POST" 
+                            style="display:inline;"
+                        >
+                            <button class="excluir" type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    </div>
 </body>
 </html>

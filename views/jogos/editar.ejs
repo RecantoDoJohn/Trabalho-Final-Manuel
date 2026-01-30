@@ -2,27 +2,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
- <meta charset="UTF-8" />
- <title>Editar Jogo</title>
- <link rel="stylesheet" href="/css/styles.css" />
+    <meta charset="UTF-8" />
+    <title>Editar Jogo</title>
+    <link rel="stylesheet" href="/css/styles.css" />
 </head>
+
 <body>
- <h1>Editar Jogo</h1>
- <form action="/jogos/editar/<%= jogo.id %>" method="POST">
- <p><label>Título:</label><br /><input name="titulo" value="<%= jogo.titulo %>" required /></p>
- <p><label>Plataforma:</label><br /><input name="plataforma" value="<%= jogo.plataforma %>" required
-/></p>
- <p>
- <label>Dono (Amigo):</label><br />
- <select name="amigoId" required>
- <% amigos.forEach(a => { %>
- <option value="<%= a.id %>" <%= Number(a.id) === Number(jogo.amigoId) ? 'selected' : '' %>>
- <%= a.nome %> (<%= a.email %>)
- </option>
- <% }) %>
- </select>
- /p>
- <p><button type="submit">Salvar</button> <a href="/jogos">Cancelar</a></p>
- </form>
+    <h1>Editar Jogo</h1>
+
+    <form action="/jogos/editar/<%= jogo.id %>" method="POST">
+
+        <p>
+            <label>Título:</label><br />
+            <input 
+                name="titulo" 
+                value="<%= jogo.titulo %>" 
+                required 
+            />
+        </p>
+
+        <p>
+            <label>Plataforma:</label><br />
+            <input 
+                name="plataforma" 
+                value="<%= jogo.plataforma %>" 
+                required 
+            />
+        </p>
+
+        <p>
+            <label>Dono (Amigo):</label><br />
+            <select name="amigoId" required>
+                <% amigos.forEach(a => { %>
+                    <option 
+                        value="<%= a.id %>" 
+                        <%= Number(a.id) === Number(jogo.amigoId) ? 'selected' : '' %>
+                    >
+                        <%= a.nome %> (<%= a.email %>)
+                    </option>
+                <% }) %>
+            </select>
+        </p>
+
+        <p>
+            <button type="submit">Salvar</button>
+            <a href="/jogos">Cancelar</a>
+        </p>
+
+    </form>
 </body>
 </html>

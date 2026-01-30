@@ -2,31 +2,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
- <meta charset="UTF-8" />
- <title>Amigos</title>
- <link rel="stylesheet" href="/css/styles.css" />
+    <meta charset="UTF-8" />
+    <title>Amigos</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    
 </head>
+
 <body>
- <h1>Amigos</h1>
- <p>
-    <a href="/amigos/novo">Cadastrar novo amigo</a> | <a href="/jogos">Ver jogos</a> | <a href="/relatorioAmigos">Relatório de Amigos</a></p>
- <table>
- <thead><tr><th>ID</th><th>Nome</th><th>Email</th><th>Ações</th></tr></thead>
- <tbody>
- <% amigos.forEach(a => { %>
- <tr>
- <td><%= a.id %></td>
- <td><%= a.nome %></td>
- <td><%= a.email %></td>
- <td>
- <a href="/amigos/editar/<%= a.id %>">Editar</a>
- <form action="/amigos/excluir/<%= a.id %>" method="POST" style="display:inline;">
- <button type="submit">Excluir</button> 
- </form>
- </td>
- </tr>
- <% }) %>
- </tbody>
- </table>
+    <h1>Amigos</h1>
+
+    <nav>
+        <a href="/amigos/novo">Cadastrar novo amigo</a> |
+        <a href="/jogos">Ver jogos</a> |
+        <a href="/relatorioAmigos.pdf">Relatório de Amigos</a>
+    </nav>
+    <div class="tabela-container">
+        <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% amigos.forEach(a => { %>
+                <tr>
+                    <td class="itemlista id"><%= a.id %></td>
+                    <td class="itemlista"><%= a.nome %></td>
+                    <td class="itemlista"><%= a.email %></td>
+                    <td class="itemlista acoes">
+                        <a href="/amigos/editar/<%= a.id %>" class="editar">Editar</a>
+
+                        <form 
+                            action="/amigos/excluir/<%= a.id %>" 
+                            method="POST" 
+                            style="display:inline;"
+                        >
+                            <button class="excluir" type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    </div>
 </body>
 </html>

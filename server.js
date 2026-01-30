@@ -20,8 +20,8 @@ app.get('/relatorioAmigos', async (req, res) => {
       order: [['id', 'ASC']],
       include: [{ model: Jogo, as: 'jogos' }]
     });
-
     res.render('amigos/relatorioAmigos', { amigos });
+    res.status(200).send('Rota de relatório de amigos funcionando.');
   } catch (err) {
     console.error(err);
     res.status(500).send('Erro ao gerar relatório.');

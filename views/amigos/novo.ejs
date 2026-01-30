@@ -2,16 +2,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
- <meta charset="UTF-8" />
- <title>Novo Amigo</title>
- <link rel="stylesheet" href="/css/styles.css" />
+    <meta charset="UTF-8" />
+    <title>Novo Amigo</title>
+    <link rel="stylesheet" href="/css/novo.css" />
 </head>
+
 <body>
- <h1>Novo Amigo</h1>
- <form action="/amigos/novo" method="POST">
- <p><label>Nome:</label><br /><input name="nome" required /></p>
- <p><label>Email:</label><br /><input name="email" required /></p>
- <p><button type="submit">Salvar</button> <a href="/amigos">Cancelar</a></p>
- </form>
+    <h1>Novo Amigo</h1>
+    <div class="form-container">
+        <form action="/amigos/novo" method="POST">
+        <p>
+            <label>Nome:</label><br />
+            <input 
+                name="nome" 
+                required 
+                placeholder="Juliano"
+                autocomplete="off"
+            /> 
+        </p>
+
+        <p>
+            <label>Email:</label><br />
+            <input 
+                name="email" 
+                required 
+                placeholder="Juliano@gmail.com"
+                autocomplete="off"
+            />
+        </p>
+
+        <p>
+            <button type="submit" class="salvar">Salvar</button>
+            <a href="/amigos" class="cancelar">Cancelar</a>
+        </p>
+    </form>
+    </div>
 </body>
 </html>
