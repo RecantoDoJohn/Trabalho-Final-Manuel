@@ -72,6 +72,17 @@ h2 {
     max-width: 90%;
     border-radius: 10px 10px 0 0;
 }
+.spotifyLogoWhite {
+    margin-bottom: 10px;
+    height: 30px;
+    width: 120px;
+}
+.spotify-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
 .form-container {
     display: flex;
     justify-content: center;
