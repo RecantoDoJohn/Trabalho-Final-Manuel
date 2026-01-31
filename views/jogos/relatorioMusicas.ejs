@@ -2,19 +2,40 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Relatório de Amigos</title>
+  <title>Relatório de Jogos</title>
 
   <style>
-    body { font-family: Arial; font-size: 12px; }
-    h1 { margin-bottom: 8px; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border: 1px solid #ccc; padding: 6px; }
-    th { background: #eee; }
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #000;
+      padding: 6px;
+      text-align: left;
+    }
+
+    th {
+      background: #f0f0f0;
+    }
   </style>
+  <link rel="shortcut icon" href="/img/spotifyLogo.png" type="image/x-icon">
 </head>
+
 <body>
 
-<h1>Relatório de Amigos</h1>
+<h1>Relatório de Jogos</h1>
 
 <table>
   <thead>
@@ -22,16 +43,19 @@
       <th>ID</th>
       <th>Título</th>
       <th>Plataforma</th>
-      <th>ID Amigo</th>
+      <th>Dono</th>
     </tr>
   </thead>
+
   <tbody>
-    <% amigos.forEach(amigo => { %>
+    <% jogos.forEach(jogo => { %>
       <tr>
-        <td><%= amigo.id %></td>
-        <td><%= amigo.titulo %></td>
-        <td><%= amigo.plataforma %></td>
-        <td><%= amigo.amigoId %></td>
+        <td><%= jogo.id %></td>
+        <td><%= jogo.titulo %></td>
+        <td><%= jogo.plataforma %></td>
+        <td>
+          <%= jogo.dono ? jogo.dono.nome : 'Sem dono' %>
+        </td>
       </tr>
     <% }) %>
   </tbody>
