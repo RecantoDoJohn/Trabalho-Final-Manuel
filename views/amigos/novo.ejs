@@ -8,34 +8,31 @@
 </head>
 
 <body>
-    <h1>Novo Amigo</h1>
-    <div class="form-container">
-        <form action="/amigos/novo" method="POST">
-        <p>
-            <label>Nome:</label><br />
-            <input 
-                name="nome" 
-                required 
-                placeholder="Juliano"
-                autocomplete="off"
-            /> 
-        </p>
+    <div class="containerGrande">
+        <div class="img">
+            <img src="/img/spotify.png" alt="spotify" />
+        </div>
 
-        <p>
-            <label>Email:</label><br />
-            <input 
-                name="email" 
-                required 
-                placeholder="Juliano@gmail.com"
-                autocomplete="off"
-            />
-        </p>
+        <div class="form-container">
+            <form action="/amigos/novo" method="POST">
+            <h2 class="titulo">Novo Artista</h2>
 
-        <p>
-            <button type="submit" class="salvar">Salvar</button>
-            <a href="/amigos" class="cancelar">Cancelar</a>
-        </p>
+            <p class="pSup">
+            <label>Nome Artistico:</label><br />
+            <input name="nome" required placeholder="Teto" autocomplete="off"/> 
+            </p>
+
+            <p>
+                <label>Gênero:</label><br />
+                <input name="email" required placeholder="Masculino"autocomplete="off"/>
+            </p>
+
+            <p class="acoes">
+                <button type="submit" class="salvar">Salvar</button>
+                <a href="/amigos" class="cancelar">Cancelar</a>
+            </p>
     </form>
+    </div>
     </div>
 </body>
 </html>

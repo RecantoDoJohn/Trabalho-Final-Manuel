@@ -7,12 +7,14 @@
 </head>
 
 <body>
-    <h1>Registrar Empréstimo</h1>
-
+    <div class="containerGrande">
+        <div class="img">
+            <img src="/img/spotify.png" alt="spotify" />
+        </div>
     <div class="form-container">
 
         <form action="/emprestimos/novo" method="POST">
-
+            <h2>Registrar Empréstimo</h2>
             <p>
                 <label>Jogo:</label><br />
                 <select name="jogoId" required>
@@ -52,12 +54,13 @@
                 />
             </p>
 
-            <p style="text-align: center; margin-top: 20px;">
+            <p class="acoes">
                 <button type="submit" class="salvar">Salvar</button>
                 <a href="/emprestimos" class="cancelar">Cancelar</a>
             </p>
 
         </form>
+    </div>
     </div>
 </body>
 </html>

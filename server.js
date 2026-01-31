@@ -12,24 +12,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => res.redirect('/amigos'));
 
-// relatorio de amigos em pdf
-
-app.get('/relatorioAmigos', async (req, res) => {
+// relatorio de Artistas em pdf
+app.get('/relatorioArtistas', async (req, res) => {
   try {
     const amigos = await Amigo.findAll({
       order: [['id', 'ASC']],
       include: [{ model: Jogo, as: 'jogos' }]
     });
-    res.render('amigos/relatorioAmigos', { amigos });
-    res.status(200).send('Rota de relatório de amigos funcionando.');
+    return res.render('amigos/relatorioArtistas', { amigos });
   } catch (err) {
     console.error(err);
-    res.status(500).send('Erro ao gerar relatório.');
+    return res.status(500).send('Erro ao gerar relatório.');
   }
 });
 
+
 // gerar PDF
-app.get('/relatorioAmigos.pdf', async (req, res) => {
+app.get('/relatorioArtistas.pdf', async (req, res) => {
   try {
     const amigos = await Amigo.findAll({
       order: [['id', 'ASC']],
@@ -38,7 +37,7 @@ app.get('/relatorioAmigos.pdf', async (req, res) => {
 
     // Renderiza EJS -> HTML (sem enviar pro navegador ainda)
     const html = await new Promise((resolve, reject) => {
-      res.render('amigos/relatorioAmigos', { amigos }, (err, renderedHtml) => {
+      res.render('amigos/relatorioArtistas', { amigos }, (err, renderedHtml) => {
         if (err) return reject(err);
         resolve(renderedHtml);
       });
@@ -58,7 +57,7 @@ app.get('/relatorioAmigos.pdf', async (req, res) => {
 
     // Resposta como PDF
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', 'inline; filename="relatorio-amigos.pdf"');
+    res.setHeader('Content-Disposition', 'inline; filename="relatorio-artistas.pdf"');
     return res.send(pdfBuffer);
 
   } catch (err) {
@@ -66,6 +65,132 @@ app.get('/relatorioAmigos.pdf', async (req, res) => {
     return res.status(500).send('Erro ao gerar PDF.');
   }
 });
+
+// relatorio de Musicas em pdf
+app.get('/relatorioMusicas', async (req, res) => {
+  try {
+    const amigos = await Amigo.findAll({
+      order: [['id', 'ASC']],
+      include: [{ model: Jogo, as: 'jogos' }]
+    });
+    res.render('amigos/relatorioMusicas', { amigos });
+    res.status(200).send('Rota de relatório de amigos funcionando.');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro ao gerar relatório.');
+  }
+});
+
+// gerar PDF
+app.get('/relatorioMusicas', async (req, res) => {
+  try {
+    const amigos = await Amigo.findAll({
+      order: [['id', 'ASC']],
+      include: [{ model: Jogo, as: 'jogos' }]
+    });
+    return res.render('amigos/relatorioMusicas', { amigos });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('Erro ao gerar relatório.');
+  }
+});
+
+
+    // HTML -> PDF
+    const browser = await chromium.launch();
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: 'networkidle' });
+
+    const pdfBuffer = await page.pdf({
+      format: 'A4',
+      printBackground: true
+    });
+
+    await browser.close();
+
+    // Resposta como PDF
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'inline; filename="relatorio-musicas.pdf"');
+    return res.send(pdfBuffer);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('Erro ao gerar PDF.');
+  }
+});
+
+// relatorio de Playlists em pdf
+app.get('/relatorioPlaylists', async (req, res) => {
+  try {
+    const amigos = await Amigo.findAll({
+      order: [['id', 'ASC']],
+      include: [{ model: Jogo, as: 'jogos' }]
+    });
+    res.render('amigos/relatorioPlaylists', { amigos });
+    res.status(200).send('Rota de relatório de amigos funcionando.');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro ao gerar relatório.');
+  }
+});
+
+// gerar PDF
+app.get('/relatorioPlaylists.pdf', async (req, res) => {
+  try {
+    const amigos = await Amigo.findAll({
+      order: [['id', 'ASC']],
+      include: [{ model: Jogo, as: 'jogos' }]
+    });
+
+    // Renderiza EJS -> HTML (sem enviar pro navegador ainda)
+    const html = await new Promise((resolve, reject) => {
+      res.render('amigos/relatorioPlaylists', { amigos }, (err, renderedHtml) => {
+        if (err) return reject(err);
+        resolve(renderedHtml);
+      });
+    });
+
+    // HTML -> PDF
+    const browser = await chromium.launch();
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: 'networkidle' });
+
+    const pdfBuffer = await page.pdf({
+      format: 'A4',
+      printBackground: true
+    });
+
+    await browser.close();
+
+    // Resposta como PDF
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'inline; filename="relatorio-playlists.pdf"');
+    return res.send(pdfBuffer);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('Erro ao gerar PDF.');
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // AMIGOS
 app.get('/amigos', async (req, res) => {
