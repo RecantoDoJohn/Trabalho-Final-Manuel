@@ -39,7 +39,10 @@ export default class MusicaController {
         
         app.get('/jogos', async (req, res) => {
          const jogos = await Musica.findAll({
-         include: [Artista],
+         include: {
+          model: Artista,
+          as: 'artista'
+        },
          order: [['id', 'ASC']]
          })
          res.render('jogos/index', { jogos });

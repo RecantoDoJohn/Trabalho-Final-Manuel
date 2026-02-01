@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasMany(models.Musica, {
-        foreignKey: 'artistaId'
+        foreignKey: 'artistaId',
+        as: 'artista'
       });
     }
   }
@@ -21,6 +22,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Artista',
+    tableName: 'Artista',   // nome EXATO da tabela
+    freezeTableName: true   // 👈 NÃO pluraliza
+
   });
   return Artista;
 };
