@@ -47,7 +47,7 @@ export default class PlaylistController {
         // PlayList CRUD
         app.get('/emprestimos', async (req, res) => {
          const emprestimos = await Playlist.findAll({
-         include: [{ model: Musica, as: 'jogo' }, { model: Artista, as: 'amigo' }],
+        //  include: [{ model: Musica, as: 'jogo' },
          order: [['id', 'ASC']]
          });
          res.render('emprestimos/index', { emprestimos });

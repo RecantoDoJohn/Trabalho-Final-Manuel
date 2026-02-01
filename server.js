@@ -8,6 +8,8 @@ import MusicaController from './controller/musica.controller.js';
 import PlaylistController from './controller/playlist.controller.js';
 import ArtistaController from './controller/artista.controller.js';
 
+import { Musica } from './models/index.js';
+
 const app = express();
 const PORT = 3000;
 
@@ -30,6 +32,10 @@ app.get('/', (req, res) => res.redirect('/amigos'));
 new MusicaController(app);
 new PlaylistController(app);
 new ArtistaController(app);
+
+console.log(
+  Musica.associations
+);
 
 // servidor
 app.listen(PORT, () => {

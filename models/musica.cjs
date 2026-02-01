@@ -17,16 +17,20 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       this.belongsTo(models.Artista, {
-        foreignKey: 'artista_id'
+        foreignKey: 'artistaId',
+        as: "artista"
       });
     }
   }
   Musica.init({
     nome: DataTypes.STRING,
     artistaId: DataTypes.INTEGER,
+    genero: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Musica',
+    tableName: 'Musicas',
+    freezeTableName: true
   });
   return Musica;
 };
