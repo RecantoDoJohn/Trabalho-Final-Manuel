@@ -18,6 +18,11 @@ const Artista = ArtistaModel(sequelize, Sequelize.DataTypes);
 const Musica = MusicaModel(sequelize, Sequelize.DataTypes);
 const Playlist = PlaylistModel(sequelize, Sequelize.DataTypes);
 
+
+// associações
+Artista.hasMany(Musica, { foreignKey: 'artistaId' });
+Musica.belongsTo(Artista, { foreignKey: 'artistaId' });
+
 // exporta para o resto do app
 export {
   sequelize,

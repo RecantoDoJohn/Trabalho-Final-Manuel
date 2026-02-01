@@ -1,4 +1,5 @@
-import { Artista } from '../models/index.js';
+import { Artista, Musica } from '../models/index.js';
+import gerarPdf from '../utils/gerarPDF.js';
 
 export default class ArtistaController {
     constructor (app) {
@@ -8,7 +9,7 @@ export default class ArtistaController {
           try {
             const amigos = await Artista.findAll({
               order: [['id', 'ASC']],
-              include: [{ model: musica, as: 'musica' }]
+              include: [Musica]
             });
             return res.render('amigos/relatorioArtistas', { amigos });
           } catch (err) {
@@ -21,7 +22,7 @@ export default class ArtistaController {
           try {
             const amigos = await Artista.findAll({
               order: [['id', 'ASC']],
-              include: [{ model: musica, as: 'musica' }]
+              include: [Musica]
             });
         
             return gerarPdf(res, 'amigos/relatorioArtistas', { amigos }, 'relatorio-artistas.pdf');
