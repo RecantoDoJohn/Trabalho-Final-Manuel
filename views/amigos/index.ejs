@@ -12,9 +12,9 @@
     <h1>Artistas</h1>
 
     <nav>
-        <a href="/amigos/novo">Cadastrar novo amigo</a> |
-        <a href="/jogos">Ver jogos</a> |
-        <a href="/relatorioArtistas.pdf">Relatório de Amigos</a>
+        <a href="/amigos/novo">Cadastrar novo Artista</a> |
+        <a href="/jogos">Ver Musicas</a> |
+        <a href="/relatorioArtistas.pdf">Gerar Relatório de Artistas</a>
     </nav>
     <div class="tabela-container">
         <table>
@@ -22,7 +22,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Email</th>
+                <th>Gênero</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -32,7 +32,7 @@
                 <tr>
                     <td class="itemlista id"><%= a.id %></td>
                     <td class="itemlista"><%= a.nome %></td>
-                    <td class="itemlista"><%= a.email %></td>
+                    <td class="itemlista"><%= a.Gênero %></td>
                     <td class="itemlista acoes">
                         <a href="/amigos/editar/<%= a.id %>" class="editar">Editar</a>
 

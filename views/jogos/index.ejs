@@ -14,7 +14,7 @@
     <nav>
         <a href="/jogos/novo">Cadastrar nova música</a> |
         <a href="/amigos">Artistas</a> |
-        <a href="/emprestimos">Empréstimos</a> |
+        <a href="/emprestimos">Playlists</a> |
         <a href="/relatorioMusicas.pdf">Relatório de Músicas</a>
 
     </nav>
@@ -23,10 +23,10 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Título</th>
-                <th>Plataforma</th>
-                <th>Dono</th>
+                <th>Nome</th>
+                <th>ArtistaID</th>
                 <th>Ações</th>
+
             </tr>
         </thead>
 
@@ -34,9 +34,8 @@
             <% jogos.forEach(j => { %>
                 <tr>
                     <td class="itemlista id"><%= j.id %></td>
-                    <td class="itemlista"><%= j.titulo %></td>
-                    <td class="itemlista"><%= j.plataforma %></td>
-                    <td class="itemlista"><%= j.dono ? j.dono.nome : 'Sem dono' %></td>
+                    <td class="itemlista"><%= j.nome %></td>
+                    <td class="itemlista"><%= j.ArtistaID %></td>
                     <td class="itemlista acoes">
                         <a href="/jogos/editar/<%= j.id %>" class="editar">Editar</a>
 
