@@ -41,21 +41,22 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Título</th>
-      <th>Plataforma</th>
-      <th>Dono</th>
+      <th>Nome</th>
+      <th>Artista</th>
+      <th>Genero</th>
+
     </tr>
   </thead>
 
   <tbody>
-    <% jogos.forEach(jogo => { %>
+    <% musicas.forEach(jogo => { %>
       <tr>
         <td><%= jogo.id %></td>
-        <td><%= jogo.titulo %></td>
-        <td><%= jogo.plataforma %></td>
+        <td><%= jogo.nome %></td>
         <td>
-          <%= jogo.dono ? jogo.dono.nome : 'Sem dono' %>
+          <%= jogo.artista ? jogo.artista.nome : 'Sem artista' %>
         </td>
+        <td><%= jogo.genero %></td>
       </tr>
     <% }) %>
   </tbody>
