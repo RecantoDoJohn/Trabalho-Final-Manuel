@@ -1,4 +1,6 @@
 import { Musica, Artista, Playlist } from '../models/index.js';
+import musica from '../models/musica.cjs';
+import playlist from '../models/playlist.cjs';
 import gerarPdf from "../utils/gerarPDF.js";
 import { chromium } from 'playwright';
 
@@ -7,15 +9,15 @@ export default class PlaylistController {
 
         // relatorio playlists / emprestimos
         app.get('/relatorioPlaylists', async (req, res) => {
-          const emprestimos = await Playlist.findAll({
+          const playlists = await Playlist.findAll({
             order: [['id', 'ASC']],
             include: [
-              { model: Musica, as: 'jogo' },
-              { model: Artista, as: 'amigo' }
+              { model: Musica }
             ]
           });
+          console.log(playlists)
         
-          return res.render('emprestimos/relatorioPlaylists', { emprestimos });
+          return res.render('emprestimos/relatorioPlaylists', { playlists });
         });
         
         

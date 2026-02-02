@@ -42,21 +42,22 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Jogo</th>
-      <th>Amigo</th>
-      <th>Data Início</th>
-      <th>Data Fim</th>
+      <th>Titulo</th>
+      <th>Musicas</th>
     </tr>
   </thead>
 
   <tbody>
-    <% emprestimos.forEach(e => { %>
+    <% playlists.forEach(e => { %>
       <tr>
         <td><%= e.id %></td>
-        <td><%= e.jogo ? e.jogo.titulo : '—' %></td>
-        <td><%= e.amigo ? e.amigo.nome : '—' %></td>
-        <td><%= e.dataInicio %></td>
-        <td><%= e.dataFim ? e.dataFim : '—' %></td>
+        <td><%= e.titulo %></td>
+        <td>
+          <% e.Musicas.forEach(musica => { %>
+            <li><%= musica.nome %> (<%= musica.genero %>)</li>
+          <% }) %>
+        </td>
+          
       </tr>
     <% }) %>
   </tbody>

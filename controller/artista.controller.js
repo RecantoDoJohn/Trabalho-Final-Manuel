@@ -9,7 +9,7 @@ export default class ArtistaController {
           try {
             const amigos = await Artista.findAll({
               order: [['id', 'ASC']],
-              include: [Musica]
+              include: [{model:Musica, as:"musicas", required: false }]
             });
             return res.render('amigos/relatorioArtistas', { amigos });
           } catch (err) {
@@ -20,12 +20,12 @@ export default class ArtistaController {
         
         app.get('/relatorioArtistas.pdf', async (req, res) => {
           try {
-            const amigos = await Artista.findAll({
+            const artistas = await Artista.findAll({
               order: [['id', 'ASC']],
-              include: [Musica]
+              include: [{model:Musica, as:"musicas"}]
             });
-        
-            return gerarPdf(res, 'amigos/relatorioArtistas', { amigos }, 'relatorio-artistas.pdf');
+            console.log(artistas)
+            return gerarPdf(res, 'amigos/relatorioArtistas', { artistas }, 'relatorio-artistas.pdf');
           } catch (err) {
             console.error(err);
             return res.status(500).send('Erro ao gerar PDF.');

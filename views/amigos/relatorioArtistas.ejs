@@ -14,24 +14,26 @@
 </head>
 <body>
 
-<h1>Relatório de Amigos</h1>
+<h1>Relatório de Artistas</h1>
 
 <table>
   <thead>
     <tr>
       <th>ID</th>
       <th>Nome</th>
-      <th>Email</th>
-      <th>Qtd. Jogos</th>
+      <th>Musicas</th>
     </tr>
   </thead>
   <tbody>
-    <% amigos.forEach(amigo => { %>
+    <% artistas.forEach(amigo => { %>
       <tr>
         <td><%= amigo.id %></td>
         <td><%= amigo.nome %></td>
-        <td><%= amigo.email %></td>
-        <td><%= amigo.jogos.length %></td>
+        <td>
+          <% amigo.musicas.forEach(musica => { %>
+            <li><%= musica.nome %> (<%= musica.genero %>)</li>
+          <% }) %>
+        </td>
       </tr>
     <% }) %>
   </tbody>
