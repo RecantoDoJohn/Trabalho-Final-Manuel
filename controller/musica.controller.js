@@ -82,7 +82,7 @@ export default class MusicaController {
         
         app.post('/jogos/editar/:id', async (req, res) => {
          const { nome, artistaId } = req.body;
-         await Musica.update({ nome, artistaId: Number(amigoId) }, { where: { id: req.params.id }
+         await Musica.update( req.body , { where: { id: req.params.id }
         });
          res.redirect('/jogos');
         });

@@ -53,8 +53,8 @@ export default class ArtistaController {
         });
         
         app.post('/amigos/editar/:id', async (req, res) => {
-         const { nome, email } = req.body;
-         await Artista.update({ nome, email }, { where: { id: req.params.id } });
+         const { nome } = req.body;
+         await Artista.update({ nome }, { where: { id: req.params.id } });
          res.redirect('/amigos');
         });
         
