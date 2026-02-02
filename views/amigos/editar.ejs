@@ -1,39 +1,31 @@
-<!-- Arquivo: views/amigos/editar.ejs -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
     <title>Editar Amigo</title>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/novo.css" />
     <link rel="shortcut icon" href="/img/spotifyLogo.png" type="image/x-icon">
 </head>
 
 <body>
     <h1>Editar Amigo</h1>
 
-    <form action="/amigos/editar/<%= amigo.id %>" method="POST">
-        <p>
-            <label>Nome:</label><br />
-            <input 
-                name="nome" 
-                value="<%= amigo.nome %>" 
-                required 
-            />
-        </p>
+    <div class="form-container">
+        <form action="/amigos/editar/<%= amigo.id %>" method="POST">
+            <p>
+                <label>Nome:</label><br />
+                <input 
+                    name="nome" 
+                    value="<%= amigo.nome %>" 
+                    required 
+                />
+            </p>
 
-        <p>
-            <label>Email:</label><br />
-            <input 
-                name="email" 
-                value="<%= amigo.email %>" 
-                required 
-            />
-        </p>
-
-        <p>
-            <button type="submit">Salvar</button>
-            <a href="/amigos">Cancelar</a>
-        </p>
-    </form>
+            <p style="text-align: center; margin-top: 20px;">
+                <button type="submit" class="salvar">Salvar</button>
+                <a href="/amigos" class="cancelar">Cancelar</a>
+            </p>
+        </form>
+    </div>
 </body>
 </html>
